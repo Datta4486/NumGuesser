@@ -33,7 +33,7 @@ if choice == "Yes" or choice == "YES":
                     print("Guessed correct. It took you",tries+1,"tries to guess it")
                 print("Would you like to play again? Type Yes or NO")
                 replay = str(input())
-                if replay == "NO" or replay == "NO":
+                if replay == "NO" or replay == "No":
                     endgame = finish = 1
                     print("Thanks for playing!")
                 elif replay == "YES" or replay == "Yes":
