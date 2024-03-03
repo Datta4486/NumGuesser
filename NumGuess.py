@@ -4,8 +4,15 @@ print("Would you like to play a game? \nIf so, type Yes and if not press No")
 endgame = 0
 tries = 0
 finish = 0
-choice = str(input())
-# Input to play or nah
+# Typo Checking
+while True:
+    # Input to play or nah
+    choice = str(input().lower())
+    if choice in ["yes","no"]:
+        break
+    else:
+        print("Invalid Choice, type either Yes or No.")
+# Actual Game
 if choice.lower() == "yes":
     while endgame != 1:
         print("The game has started, guess the number between 1-100")
@@ -15,9 +22,12 @@ if choice.lower() == "yes":
         answer = rand.randrange(1,101,1)
         # while function to do a loop
         while finish != 1:
-            print(answer)
-            # User answer
-            useranswer = int(input("Enter ur guess:"))
+            while True:
+                try: 
+                    useranswer = int(input("Enter ur guess:"))
+                    break
+                except ValueError:
+                    print("Invalid input. Make sure that it is an integer.")
             #If answer is false
             if useranswer != answer:
                 if useranswer > answer:
@@ -32,7 +42,12 @@ if choice.lower() == "yes":
                 else:
                     print("Guessed correct. It took you",tries+1,"tries to guess it")
                 print("Would you like to play again? Type Yes or NO")
-                replay = str(input())
+                while True:
+                    replay = str(input().lower())
+                    if replay in ["yes","no"]:
+                        break
+                    else:
+                        print("Invalid input. Type either yes or no")
                 if replay.lower() == "no":
                     endgame = finish = 1
                     print("Thanks for playing!")
