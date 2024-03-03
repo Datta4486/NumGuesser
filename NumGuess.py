@@ -6,7 +6,7 @@ tries = 0
 finish = 0
 choice = str(input())
 # Input to play or nah
-if choice == "Yes" or choice == "YES":
+if choice.lower() == "yes":
     while endgame != 1:
         print("The game has started, guess the number between 1-100")
         finish = 0
@@ -33,12 +33,12 @@ if choice == "Yes" or choice == "YES":
                     print("Guessed correct. It took you",tries+1,"tries to guess it")
                 print("Would you like to play again? Type Yes or NO")
                 replay = str(input())
-                if replay == "NO" or replay == "No":
+                if replay.lower() == "no":
                     endgame = finish = 1
                     print("Thanks for playing!")
-                elif replay == "YES" or replay == "Yes":
+                elif replay.lower() == "yes":
                     finish = 1
-elif choice == "No" or choice == "NO":
+elif choice.lower() == "no":
     print("Why even bother running this program?")
 
 
